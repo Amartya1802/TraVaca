@@ -1,8 +1,8 @@
 import React from 'react'
-
-const DetailsCard = () => {
+import { Grid } from '@material-ui/core';
+const DetailsCard = ({ places }) => {
     return (
-        <h1>Card</h1>
+        <h1>{places.name}</h1>
     );
 }
 

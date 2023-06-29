@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid } from '@material-ui/core';
 
-import {Box, Typography, Butoon, Card, CardMedia, CardContent, CardActions, Chip} from '@material-ui/core'
+import {Box, Typography, Button, Card, CardMedia, CardContent, CardActions, Chip} from '@material-ui/core'
 
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import PhoneIcon from '@material-ui/icons/Phone';
@@ -28,7 +28,28 @@ const DetailsCard = ({ places }) => {
                     <Typography varient="subtitle1">Ranking</Typography>
                     <Typography gutterBottom variant="subtitle1">{places.ranking}</Typography>
                 </Box>
+                {places?.cuisine?.map(({name}) => (
+                    <Chip key={name} size="small" label={name} className={classes.chip} />
+                ))}
+                {places.address && (
+                    <Typography gutterBottom variant="body2" color="textSecondary" className={classes.subtitle}>
+                        <LocationOnIcon />{places.address}
+                    </Typography>
+                )}
+                {places.phone && (
+                    <Typography variant="body2" color="textSecondary" className={classes.spacing}>
+                        <PhoneIcon /> {places.phone}
+                    </Typography>
+                )}
             </CardContent>
+            <CardActions>
+                <Button size="small" color="primary" onClick={() => window.open(places.web_url, '_blank')}>
+                    Trip Advisor
+                </Button>
+                <Button size="small" color="primary" onClick={() => window.open(places.website, '_blank')}>
+                    Website
+                </Button>
+            </CardActions>
             
         </Card>
     );

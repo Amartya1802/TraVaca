@@ -26,7 +26,7 @@ const App = () => {
                 console.log(data);
                 setPlaces(data);
             })
-    }, [bounds])
+    }, [coordinates, bounds])
     return (
         <>
             <CssBaseline />

@@ -4,41 +4,30 @@ import { useRef, useState } from "react";
 
 import DetailsCard from '../DetailsCard/DetailsCard'
 
-const Carousel = () => {
+const Carousel = ({places}) => {
     const classes = useState()
-    const places = [
-        {name: 'Cool place'},
-        {name: 'Best steak'},
-        {name: 'Good pizza'},
-        {name: 'Cool place'},
-        {name: 'Best steak'},
-        {name: 'Good pizza'},
-        {name: 'Cool place'},
-        {name: 'Best steak'},
-        {name: 'Good pizza'},
-        {name: 'Cool place'},
-        {name: 'Best steak'},
-        {name: 'Good pizza'},
-        {name: 'Best steak'},
-        {name: 'Good pizza'},
-        {name: 'Cool place'},
-        {name: 'Best steak'},
-        {name: 'Good pizza'},
-        {name: 'Cool place'},
-        {name: 'Best steak'},
-        {name: 'Good pizza'},
-        {name: 'Cool place'},
-        {name: 'Best steak'},
-        {name: 'Good pizza'},
-    ]
+    // const places = [
+    //     {name: 'Cool place'},
+    //     {name: 'Best steak'},
+    //     {name: 'Good pizza'},
+    //     {name: 'Cool place'},
+    //     {name: 'Best steak'},
+    //     {name: 'Good pizza'},
+    //     {name: 'Cool place'},
+    //     {name: 'Best steak'},
+    //     {name: 'Good pizza'},
+    //     {name: 'Cool place'},
+    //     {name: 'Best steak'},
+      
+    // ]
     return (
         // <h1>Carousel</h1>
         <Grid container spacing={3} className={classes.list}>
             {
                 places?.map((place, i) => (
-                    <div item key={i} xs={12}>
+                    <Grid item key={i} xs={4} container direction={'column'} spacing={1}>
                         <DetailsCard places={place}/>
-                    </div> 
+                    </Grid> 
                 ))
             }
         </Grid>

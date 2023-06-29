@@ -11,7 +11,7 @@ const App = () => {
     const [places, setPlaces] = useState([]);
 
     const [coordinates, setCoordinates] = useState({});
-    const [bounds, setBounds] = useState(null);
+    const [bounds, setBounds] = useState({});
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(({coords: {latitude, longitude}}) => {
@@ -20,13 +20,13 @@ const App = () => {
     }, []);
 
     useEffect(() => {
-        console.log(coordinates, bounds);
+        // console.log(coordinates, bounds);
         getPlacesData(bounds.sw, bounds.ne)
             .then((data) => {
                 console.log(data);
                 setPlaces(data);
             })
-    }, [])
+    }, [bounds])
     return (
         <>
             <CssBaseline />
@@ -43,7 +43,7 @@ const App = () => {
                     />
                 </Grid>
             </Grid>
-            <Carousel />
+            <Carousel places={places}/>
         </>
     );
 }

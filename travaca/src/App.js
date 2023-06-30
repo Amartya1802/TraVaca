@@ -16,6 +16,8 @@ const App = () => {
     const [childClicked, setChildClicked] = useState(null)
     const [isLoading, setIsLoading] = useState(false);
 
+    const [filteredPlaces, setFilteredPlaces] = useState([]);
+
     const [type, setType] = useState('restaurants');
     const [rating, setRating] = useState('');
 
@@ -25,16 +27,26 @@ const App = () => {
         })
     }, []);
 
+
     useEffect(() => {
-        setIsLoading(true);
-        // console.log(coordinates, bounds);
-        getPlacesData(type, bounds.sw, bounds.ne)
-            .then((data) => {
-                console.log(data);
-                setPlaces(data);
-                setIsLoading(false);
-            })
-    }, [type, coordinates, bounds])
+        const filteredPlaces = places.filter((places) => places.rating > rating);
+
+        setFilteredPlaces(filteredPlaces);
+    }, [rating]);
+
+    useEffect(() => {
+        if(bounds.sw && bounds.ne) {
+            setIsLoading(true);
+            // console.log(coordinates, bounds);
+            getPlacesData(type, bounds.sw, bounds.ne)
+                .then((data) => {
+                    // console.log(data);
+                    setPlaces(data?.filter((places) => places.name));
+                    setFilteredPlaces([])
+                    setIsLoading(false);
+                })
+        }
+    }, [type, bounds])
     
     return (
         <>
@@ -47,6 +59,7 @@ const App = () => {
                         setType={setType}
                         rating={rating}
                         setRating={setRating} 
+                        setCoordinates={setCoordinates}
                     />
                 </Grid>
                 <Grid item xs={12} md={8}>
@@ -54,13 +67,13 @@ const App = () => {
                         setCoordinates={setCoordinates}
                         setBounds={setBounds}
                         coordinates={coordinates}
-                        places={places}
+                        places={filteredPlaces.length ? filteredPlaces : places}
                         setChildClicked={setChildClicked}
                     />
                 </Grid>
             </Grid>
             <Carousel 
-                places={places}
+                places={filteredPlaces.length ? filteredPlaces : places}
                 childClicked={childClicked}
                 isLoading={isLoading}
                 type={type}

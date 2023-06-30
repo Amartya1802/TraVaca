@@ -3,6 +3,11 @@ import { alpha, makeStyles } from "@material-ui/core";
 export default makeStyles((theme) => ({
     main_txt: {
         color: 'blue',
+        padding: theme.spacing(11, 5, 6)
+    },
+
+    info_txt: {
+      padding: theme.spacing(1, 6, 8)
     },
 
     search: {

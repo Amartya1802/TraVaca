@@ -7,11 +7,10 @@ import SearchIcon from '@material-ui/icons/Search';
 
 import useStyles from './styles'
 
-const LeftSection = () => {
+const LeftSection = (type, setType, rating, setRating) => {
 
     const classes = useStyles();
-    const [type, setType] = useState('Restaurants');
-    const [rating, setRating] = useState('');
+    
 
     return (
         <>

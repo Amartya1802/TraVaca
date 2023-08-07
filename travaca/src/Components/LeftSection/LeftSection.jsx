@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Autocomplete } from '@react-google-maps/api';
-// import { AppBar, Toolbar, Typography, InputBase, Box } from '@material-ui/core';
 import { Typography, InputLabel, MenuItem, FormControl, Select, InputBase } from '@material-ui/core';
 
 import SearchIcon from '@material-ui/icons/Search';
@@ -63,7 +62,6 @@ const LeftSection = ({type, setType, rating, setRating, setCoordinates}) => {
                 </FormControl>
             </div>
         </>
-
     );
 }
 

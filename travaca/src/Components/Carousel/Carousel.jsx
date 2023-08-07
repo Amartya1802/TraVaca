@@ -5,19 +5,6 @@ import DetailsCard from '../DetailsCard/DetailsCard'
 
 const Carousel = ({places, childClicked, isLoading}) => {
     const classes = useState()
-    // const places = [
-    //     {name: 'Cool place'},
-    //     {name: 'Best steak'},
-    //     {name: 'Good pizza'},
-    //     {name: 'Cool place'},
-    //     {name: 'Best steak'},
-    //     {name: 'Good pizza'},
-    //     {name: 'Cool place'},
-    //     {name: 'Best steak'},
-    //     {name: 'Good pizza'},
-    //     {name: 'Cool place'},
-    //     {name: 'Best steak'}, 
-    // ]
     // console.log(childClicked);
     console.log(childClicked);
 
@@ -25,14 +12,10 @@ const Carousel = ({places, childClicked, isLoading}) => {
 
     useEffect(() => {
         const refs = Array(places?.length).fill().map((_, i) => elRefs[i] || createRef());
-
         setElRefs(refs);
-
     }, [places]);
 
-
     return (
-        
                 <Grid container spacing={3} className={classes.list}>
                 {isLoading ? (
                     <div className={classes.loading}>
@@ -53,9 +36,7 @@ const Carousel = ({places, childClicked, isLoading}) => {
                         }
                         </>
                     )}
-                </Grid>
-                
-        
+                </Grid>  
     );
 }
 

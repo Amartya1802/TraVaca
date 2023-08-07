@@ -7,6 +7,7 @@ import LeftSection from './Components/LeftSection/LeftSection';
 import Map from './Components/Map/Map';
 import Carousel from './Components/Carousel/Carousel';
 
+
 const App = () => { 
     const [places, setPlaces] = useState([]);
 
@@ -49,7 +50,7 @@ const App = () => {
     }, [type, bounds])
     
     return (
-        <>
+        <div className="main-body">
             <CssBaseline />
             <Header />
             <Grid container spacing={3} style={{ width: '100%'}}>
@@ -81,7 +82,7 @@ const App = () => {
                 rating={rating}
                 setRating={setRating}
             />
-        </>
+        </div>
     );
 }
 

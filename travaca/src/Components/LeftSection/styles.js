@@ -2,8 +2,9 @@ import { alpha, makeStyles } from "@material-ui/core";
 
 export default makeStyles((theme) => ({
     main_txt: {
-        color: 'blue',
-        padding: theme.spacing(11, 5, 6)
+        color: '#1b5e20',
+        padding: theme.spacing(11, 5, 6),
+        // backgroundColor: '#673ab7'
     },
 
     info_txt: {
@@ -13,9 +14,9 @@ export default makeStyles((theme) => ({
     search: {
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
-        backgroundColor: alpha(theme.palette.secondary.light, 0.25),
+        backgroundColor: '#c8e6c9',
         // backgroundColor: 'blue',
-        '&:hover': { backgroundColor: alpha(theme.palette.secondary.light, 0.65) },
+        '&:hover': { backgroundColor: '#81c784' },
         marginRight: theme.spacing(2),
         marginLeft: 0,
         width: '100%',
